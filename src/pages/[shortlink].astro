@@ -1,0 +1,26 @@
+---
+export async function getStaticPaths() {
+  const SHORT_LINKS = [
+    {
+      params: { shortlink: 'discord' },
+      props: { 
+        url: 'https://discord.gg/QuC3mhMzKt',
+        description: 'Discord du HackLab'
+      }
+    },
+    {
+      params: { shortlink: 'github' },
+      props: { 
+        url: 'https://github.com/hacklab-esgi',
+        description: 'Github du HackLab'
+      }
+    }
+  ];
+
+  return SHORT_LINKS;
+}
+
+const { url, description } = Astro.props;
+
+return Astro.redirect(url, 301);
+---
